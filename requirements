@@ -1,0 +1,26 @@
+Serial_No
+Name
+Page
+Category
+Author
+Price
+Memories associated
+Publisher
+Section
+Shelf no
+
+Login and authorization
+session logging
+
+
+**********
+Task 1
+--Create a Session class, with logging for each activity - create a logger function to log the details with file name
+  with date time
+
+
+--Create log in module - with one pre defined user with admin privileges
+  Admin has options to add new users with admin or read only prvileges
+  two classes, one for admin and one for users, return the corresponding object to session class
+
+--
