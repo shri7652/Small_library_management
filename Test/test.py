@@ -23,3 +23,11 @@ b = 'abcd'
 a = ""
 while a != b:
     a = str(input("Entter a"))
+
+menu = """
+        1. Book Shelf browse
+        2. update password
+        3. Quit
+        """
+menuFunc = {"1" : "bookShelfBrowse()", "2": "updatePassword()", "3" : sys.exit(0)}
+

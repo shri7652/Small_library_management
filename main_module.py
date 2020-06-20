@@ -4,6 +4,7 @@ import time
 import sys
 from utils import *
 from Session import *
+from menu import *
 
 def main():
     """Execution start point for library management"""
@@ -19,6 +20,8 @@ def main():
 
     Session = session(user, user_type)
 
+    #send Main Menu
+    theMainMenu(user_type)
 
 if __name__ == '__main__':
     main()
