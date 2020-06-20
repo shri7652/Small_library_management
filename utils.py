@@ -106,7 +106,7 @@ def removeUser():
         time.sleep(3)
         return True, user
 
-def updatePassword():
+def updatePassword(user):
     """This function will update password for an existing user"""
     #load user details into memory
     userDetails = pickle.load(open(os.getcwd()+"\\user.p","rb"))
@@ -114,7 +114,7 @@ def updatePassword():
     clear()
     print("*******Welcome to Small Library Management - Update Password******")
     #Fetch user and password from the user
-    user = str(input("Enter username")).strip().lower()
+    #user = str(input("Enter username")).strip().lower()
     password = str(input("Enter Current Password")).strip()
 
     getUserInfo = [userDict for userDict in userDetails if userDict['user'] == user]
