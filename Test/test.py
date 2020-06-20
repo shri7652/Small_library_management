@@ -1,7 +1,7 @@
 import pickle
 import datetime as dt
 import os
-
+"""
 print(str(dt.datetime.now()).split())
 bookShelf = [{'Name':'SomeName', 'Author': 'SomeAuthor'}, {'Name':'SomeName1', 'Author': 'SomeAuthor1'}]
 pickle.dump(bookShelf,open(os.getcwd()+"\\save.p","wb"))
@@ -18,3 +18,8 @@ print(copiedUser)
 
 a,b,c = (1,2,3)
 print(a,b,c)
+"""
+b = 'abcd'
+a = ""
+while a != b:
+    a = str(input("Entter a"))
