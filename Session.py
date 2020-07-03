@@ -2,8 +2,9 @@ import os
 import datetime as dt
 import menu_class
 import user_class
+import book_class
 
-class session(menu_class.menu, user_class.user):
+class session(menu_class.menu, user_class.user, book_class.bookShelf):
     """This class initiates a session with the user"""
 
     def __init__(self, user, user_type):

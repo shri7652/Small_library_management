@@ -104,30 +104,36 @@ class user():
             time.sleep(3)
             return True, user
 
-    def updatePassword(self, user):
+    def updatePassword(self):
         """This function will update password for an existing user"""
         #load user details into memory
+        user = self.user
         userDetails = pickle.load(open(os.getcwd()+"\\user.p","rb"))
         utils.printMenuHead("Update Password")
         #Fetch user and password from the user
         #user = str(input("Enter username")).strip().lower()
-        password = str(input("Enter Current Password")).strip()
 
+        password = str(input("Enter Current Password")).strip()
         getUserInfo = [userDict for userDict in userDetails if userDict['user'] == user]
 
 
         i = 0
-        while i <= 3:
+        while i < 3:
+            i += 1
             if password == getUserInfo[0]['password']:
                 break
             utils.printMenuHead("Invalid password")
-            print("Enter the password again - Only 3 more tries !!!!")
+            tries =  "No" if (3-i) == 0 else 3-i
+            print("Enter the password again - {} more tries left !!!!".format(tries))
             password = str(input("Enter Current Password")).strip()
-            i += 1
+
 
         else:
             self.logger("password change attempt for user {} failed as the user entered invalid password" \
                         "for more than 3 times".format(user))
+            utils.printMenuHead("Invalid password entered")
+            print ("Invalid password entered, Quitting")
+            time.sleep(3)
             return False
 
         new_password = str(input("Enter New Password")).strip()
