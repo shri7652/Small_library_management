@@ -16,8 +16,8 @@ class menu():
             4. update password
             5. Quit
             """
-            menuFunc = {1: self.userManagement, 2: "bookShelfManagement", 3: "bookShelfBrowse", \
-                        4: "updatePassword()", 5: sys.exit}
+            menuFunc = {"1": self.userManagement, "2": "bookShelfManagement", "3": "bookShelfBrowse", \
+                        "4": "updatePassword()", "5": sys.exit}
 
         else:
 
@@ -31,7 +31,14 @@ class menu():
         utils.clear()
         utils.printMenuHead("Main Menu")
         print(menu)
-        menuFunc[int(str(input("Enter your choice")).strip())]()
+
+        try:
+            menuFunc[str(input("Enter your choice   :")).strip()]()
+        except KeyError:
+            utils.clear()
+            utils.printMenuHead("Invalid option entered")
+            self.theMainMenu()
+
 
 
     def userManagement(self):
@@ -46,7 +53,13 @@ class menu():
         utils.clear()
         utils.printMenuHead("User Management")
         print(userMenu)
-        menuFunc[str(input("Enter your choice")).strip()]()
+        try:
+            menuFunc[str(input("Enter your choice   :")).strip()]()
+        except KeyError:
+            utils.clear()
+            utils.printMenuHead("Invalid option entered")
+            self.userManagement()
+
         self.userManagement()
 
 

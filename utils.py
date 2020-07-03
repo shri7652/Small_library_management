@@ -1,9 +1,5 @@
 import os
 
-    #Print Headers
-def printMenuHead(header):
-    print("*******Welcome to Small Library Management - {} ******".format(header))
-
 #Function to clear screen
 def clear():
 
@@ -14,6 +10,13 @@ def clear():
     # for mac and linux
     else:
         _ = os.system('clear')
+
+#Print Headers
+def printMenuHead(header):
+    clear()
+    print("*******Welcome to Small Library Management - {} ******".format(header))
+
+
 
 
 

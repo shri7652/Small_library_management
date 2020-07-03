@@ -20,7 +20,7 @@ class session(menu_class.menu, user_class.user):
 
     def logger(self,data):
         with open(os.getcwd()+"\\logs\\" + self.user + '_'+ self.start_time + ".txt", "a") as log_file:
-            log_file.write(data + '\n')
+            log_file.write(str(dt.datetime.now()) + ":" + data + '\n')
 
 
 
