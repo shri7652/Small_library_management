@@ -1,9 +1,11 @@
 import os
-import pickle
 import datetime as dt
+import menu_class
+import user_class
 
-class session():
+class session(menu_class.menu, user_class.user):
     """This class initiates a session with the user"""
+
     def __init__(self, user, user_type):
         """Initialise session parameters"""
         self.start_time = str(dt.datetime.now()).replace(':','-')
@@ -19,6 +21,12 @@ class session():
     def logger(self,data):
         with open(os.getcwd()+"\\logs\\" + self.user + '_'+ self.start_time + ".txt", "a") as log_file:
             log_file.write(data + '\n')
+
+
+
+
+
+
 
 
 
