@@ -1,5 +1,6 @@
 import utils
 import sys
+import time
 
 
 class menu():
@@ -35,6 +36,7 @@ class menu():
             menuFunc[str(input("Enter your choice   :")).strip()]()
         except KeyError:
             utils.printMenuHead("Invalid option entered")
+            time.sleep(2)
             self.theMainMenu()
 
         self.theMainMenu()
@@ -54,11 +56,13 @@ class menu():
             menuFunc[str(input("Enter your choice   :")).strip()]()
         except KeyError:
             utils.printMenuHead("Invalid option entered")
+            time.sleep(2)
             self.userManagement()
 
         self.userManagement()
 
     def bookShelfManagement(self):
+
         userMenu = """
         1 Add book
         2 Remove book
@@ -71,10 +75,15 @@ class menu():
 
         utils.printMenuHead("Book Shelf Management")
         print(userMenu)
+
         try:
-            menuFunc[str(input("Enter your choice   :")).strip()]()
+            choice = str(input("Enter your choice   :")).strip()
+            print(choice)
+            print(menuFunc.keys())
+            menuFunc[choice]()
         except KeyError:
             utils.printMenuHead("Invalid option entered")
+            time.sleep(2)
             self.bookShelfManagement()
 
         self.bookShelfManagement()
