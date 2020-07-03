@@ -1,23 +1,9 @@
 import utils
-import os
 import sys
 
 
 class menu():
     """ Abstract Class for Menu """
-
-    def printMenuHead(self, header):
-        print("*******Welcome to Small Library Management - {} ******".format(header))
-
-    def clear(self):
-
-        # for windows
-        if os.name == 'nt':
-            _ = os.system('cls')
-
-        # for mac and linux
-        else:
-            _ = os.system('clear')
 
     def theMainMenu(self):
         """Takes in the user_type and sends the main menu screen accordingly"""
@@ -42,10 +28,11 @@ class menu():
             """
             menuFunc = {"1": "bookShelfBrowse", "2": "updatePassword", "3": sys.exit}
 
-        self.clear()
-        self.printMenuHead("Main Menu")
+        utils.clear()
+        utils.printMenuHead("Main Menu")
         print(menu)
         menuFunc[int(str(input("Enter your choice")).strip())]()
+
 
     def userManagement(self):
         userMenu = """
@@ -54,10 +41,12 @@ class menu():
         3 Go back to main menu
         4 quit
         """
-        menuFunc = {"1": self.addUser, "2": "removeUser()", "3": "theMainMenu(Session.user_type)", "4": sys.exit}
+        menuFunc = {"1": self.addUser, "2": self.removeUser, "3": self.theMainMenu, "4": sys.exit}
 
-        self.clear()
-        self.printMenuHead("User Management")
+        utils.clear()
+        utils.printMenuHead("User Management")
         print(userMenu)
         menuFunc[str(input("Enter your choice")).strip()]()
+        self.userManagement()
+
 

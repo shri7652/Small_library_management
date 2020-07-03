@@ -1,30 +1,8 @@
 import os
-import pickle
 
-
-def get_user():
-    """Fetch the user details and check if user exists, if exists set the privileges"""
-    clear()
-
-    # Welcome
-    print("*******Welcome to Small Library Management - Login******")
-
-    # Fetch user and password from the user
-    user = str(input("Enter username")).strip().lower()
-    password = str(input("Enter Password")).strip()
-
-    # load user infomation file to memory
-    userDetails = pickle.load(open(os.getcwd() + "\\user.p", "rb"))
-
-    # Check if user exists
-    userData = [(userDict['user'], userDict['user_type']) for userDict in userDetails if
-                (userDict['user'].lower() == user and \
-                 userDict['password'] == password)]
-
-    if userData:
-        return userData[0]
-    else:
-        return None, None
+    #Print Headers
+def printMenuHead(header):
+    print("*******Welcome to Small Library Management - {} ******".format(header))
 
 #Function to clear screen
 def clear():

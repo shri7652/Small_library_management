@@ -2,15 +2,16 @@ from Session import session
 import utils
 import time
 import sys
+import user_class
 
 def main():
     """Execution start point for library management"""
 
     #send login screen to get valid user name and user type
-    user, user_type = utils.get_user()
+    user, user_type = user_class.get_user()
     if not user:
         utils.clear()
-        print("*******Welcome to Small Library Management - Invalid user******")
+        utils.printMenuHead("Invalid User")
         print("Entered user doesn't exist, quitting")
         time.sleep(3)
         sys.exit(1)
