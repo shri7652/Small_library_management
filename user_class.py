@@ -36,7 +36,7 @@ class user():
         userDetails = pickle.load(open(os.getcwd()+"\\user.p","rb"))
 
         #Fetch user and password from the user
-        user = str(input("Enter username")).strip().lower()
+        user = str(input("Enter username     :")).strip().lower()
         check_existing_user = [userDict['user'] for userDict in userDetails if userDict['user'] == user ]
         #Check if user Exists
         if check_existing_user:
@@ -47,18 +47,18 @@ class user():
             return None
 
         #Ask for password
-        password = str(input("Enter Password")).strip()
-        check_pwd = str(input("Enter Password again to confirm")).strip()
+        password = str(input("Enter Password      :")).strip()
+        check_pwd = str(input("Enter Password again to confirm       :")).strip()
 
         while password != check_pwd:
             utils.printMenuHead("Invalid Password")
-            check_pwd = str(input("Enter Password again to confirm")).strip()
+            check_pwd = str(input("Enter Password again to confirm     :")).strip()
 
-        user_type = str(input("Enter user_type (admin or user)")).strip()
+        user_type = str(input("Enter user_type (admin or user)      :")).strip()
 
         while user_type not in ['admin', 'user']:
             utils.printMenuHead("invalid user_type")
-            user_type = str(input("Enter user_type (admin or user)")).strip()
+            user_type = str(input("Enter user_type (admin or user)     :")).strip()
 
         userDetails = userDetails + [{"user" : user, "user_type" : user_type, "password" : password}]
         pickle.dump(userDetails,open(os.getcwd()+"\\user.p","wb"))
@@ -80,7 +80,7 @@ class user():
         utils.printMenuHead("Remove User")
 
         #get details of the user to be removed
-        user = str(input("Enter username")).strip().lower()
+        user = str(input("Enter username     :")).strip().lower()
         check_existing_user = [userDict['user'] for userDict in userDetails if userDict['user'] == user]
 
         #User should be existing to remove
@@ -113,7 +113,7 @@ class user():
         #Fetch user and password from the user
         #user = str(input("Enter username")).strip().lower()
 
-        password = str(input("Enter Current Password")).strip()
+        password = str(input("Enter Current Password      :")).strip()
         getUserInfo = [userDict for userDict in userDetails if userDict['user'] == user]
 
 
@@ -125,7 +125,7 @@ class user():
             utils.printMenuHead("Invalid password")
             tries =  "No" if (3-i) == 0 else 3-i
             print("Enter the password again - {} more tries left !!!!".format(tries))
-            password = str(input("Enter Current Password")).strip()
+            password = str(input("Enter Current Password     :")).strip()
 
 
         else:
@@ -136,12 +136,12 @@ class user():
             time.sleep(3)
             return False
 
-        new_password = str(input("Enter New Password")).strip()
-        check_pwd = str(input("Enter Password again to confirm")).strip()
+        new_password = str(input("Enter New Password     :")).strip()
+        check_pwd = str(input("Enter Password again to confirm     :")).strip()
 
         while new_password != check_pwd:
             utils.printMenuHead("Invalid Password")
-            check_pwd = str(input("Enter Password again to confirm")).strip()
+            check_pwd = str(input("Enter Password again to confirm      :")).strip()
 
         getUserInfo[0]['password'] = new_password
         userDetails = list(filter(lambda x: x['user'] != user, userDetails)) + getUserInfo

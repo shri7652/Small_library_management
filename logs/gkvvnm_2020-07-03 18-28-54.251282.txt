@@ -1,0 +1,2 @@
+2020-07-03 18:28:54.251282:Session with user gkvvnm started at 2020-07-03 18:28:54.251282
+2020-07-03 18:29:07.110278:Tried to add user jithu but user already exists
